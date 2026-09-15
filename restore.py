@@ -85,12 +85,30 @@ extra+=section('faq','FAQ','Perguntas frequentes.', '<div class="pac-faq">'+''.j
 extra+=f'<section class="section pac-extra"><div class="container"><div class="pac-columns"><div><h2>Aplicar para o PAC.</h2>{p("Preencha suas informações")}{ul(["Sem cobrança de ingresso","Sem compromisso de compra","Sem solicitação de faturamento"])}</div><div><p>Nome completo · WhatsApp · Cidade / UF · Instagram · Especialidade médica</p><a class="button-glow w-inline-block" href="{FORM}" target="_blank" rel="noopener noreferrer">Preencher aplicação</a>{p("Após o envio")}</div></div><div class="pac-material"><h3>Resultados e provas</h3><p>Depoimentos em vídeo · Histórias de médicos · Cases da metodologia · Resultados específicos</p><p>Material em atualização</p></div></div></section>'
 html=html.replace('<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',extra+'<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',1)
 html=html.replace('</head>','<link rel="stylesheet" href="css/pac-restored.css"></head>')
-(ROOT/'index.html').write_text(html,encoding='utf-8')
 images=re.findall(r'<img\b[^>]*>',original)
 assert images==re.findall(r'<img\b[^>]*>',html),'Original image markup changed'
 hooks=re.findall(r'data-w-id="([^"]+)"',original)
 assert hooks==re.findall(r'data-w-id="([^"]+)"',html),'Animation IDs changed'
 assert re.findall(r'<script\b.*?</script>',original,re.S)==re.findall(r'<script\b.*?</script>',html,re.S),'Scripts changed'
+# Brand substitutions are restricted to logos; the restored illustration and animation markup stays intact.
+before_brand=html
+def brand_logo(match):
+    tag=match.group(0)
+    if 'class="brand-image"' in tag or 'class="footer-brand-image"' in tag:
+        tag=re.sub(r'src="[^"]+"','src="images/legacy/logo-gold-white.png"',tag)
+        tag=tag.replace('alt=""','alt="Legacy Doctors"')
+    elif 'class="company-logo"' in tag:
+        tag=re.sub(r'src="[^"]+"','src="images/legacy/logo-white.png"',tag)
+        tag=tag.replace('alt=""','alt="Legacy Doctors"')
+    return tag
+html=re.sub(r'<img\b[^>]*>',brand_logo,html)
+html=html.replace('images/673c86594c8e945d0a8d39fd_Fav.png','images/legacy/brand-icon.png').replace('images/673c865c3de8eb55a5db0099_Web.png','images/legacy/brand-icon.png')
+html=html.replace('</head>','<link rel="stylesheet" href="css/legacy-brand.css"></head>')
+assert len(images)==len(re.findall(r'<img\b[^>]*>',html))
+assert hooks==re.findall(r'data-w-id="([^"]+)"',html)
+nonlogo=lambda s:[x for x in re.findall(r'<img\b[^>]*>',s) if not any(c in x for c in ['class="brand-image"','class="footer-brand-image"','class="company-logo"'])]
+assert nonlogo(before_brand)==nonlogo(html), 'Non-brand imagery changed'
+(ROOT/'index.html').write_text(html,encoding='utf-8')
 for ref in re.findall(r'(?:src|href)="((?:images|css|js)/[^"?#]+)"',html):assert (ROOT/unquote(ref)).is_file(),ref
 for group in re.findall(r'srcset="([^"]+)"',html):
     for candidate in group.split(','):
@@ -100,5 +118,5 @@ assert all(a in ids for a in re.findall(r'href="#([^"]+)"',html))
 assert 'Lorem ipsum' not in html
 dist=ROOT/'dist';dist.mkdir(exist_ok=True)
 shutil.copy2(ROOT/'index.html',dist/'index.html')
-for folder in ('css','images','js'):shutil.copytree(ROOT/folder,dist/folder,dirs_exist_ok=True)
+for folder in ('css','images','js','fonts'):shutil.copytree(ROOT/folder,dist/folder,dirs_exist_ok=True)
 print('Restored',len(images),'original images and',len(hooks),'animation hooks. Scripts, images, variants and links verified.')

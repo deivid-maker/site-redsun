@@ -1,0 +1,68 @@
+/* Legacy Doctors: main identity manual pages 8–9. Rovan is retained in the supplied wordmark; Poppins is the supplied supporting typeface. */
+@font-face{font-family:Poppins;src:url('../fonts/Poppins-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('../fonts/Poppins-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('../fonts/Poppins-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('../fonts/Poppins-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+:root{
+ --main-font:Poppins,Arial,sans-serif;
+ --pragraph-font:Poppins,Arial,sans-serif;
+ --color--page-color:#0a1f3c;
+ --color--brand-color:#e5c66a;
+ --color--button-text:#dce4f1;
+ --color--elements-bg:#0a3d9126;
+ --color--elements-stroke:#e5c66a33;
+ --color--inner-shadow-color:#0a3d914d;
+ --color--gradient-color-01:#fff1a8;
+ --color--gradient-color-02:#e5c66a00;
+ --color--hoved-color:#0a3d9140;
+}
+body{background-color:#0a1f3c;color:#fff}
+h1,h2,h3,h4,h5,h6,p,a,li,input,button,summary,dt,dd{font-family:Poppins,Arial,sans-serif}
+p{color:#c0cbdc;line-height:1.65}
+.navbar{background-color:#0a1f3ce8}
+.container.navbar-container{border-bottom-color:#e5c66a26}
+.brand{width:190px;min-width:160px}
+.brand-image{display:block;width:190px;max-height:68px;object-fit:contain}
+.footer-brand-image{width:240px;height:auto;max-height:100px;object-fit:contain;margin-bottom:22px}
+.company-logo{opacity:.7;object-fit:contain;max-width:150px}
+.hero-section.padding-top{background-image:linear-gradient(180deg,#0a1f3c00 50%,#0a1f3c 100%),url('../images/legacy/background.png');background-size:cover;background-position:center top}
+.hero-title{letter-spacing:-.04em;color:#fff}
+.title{background-image:linear-gradient(348deg,#c0cbdc,#fff 54%)}
+.button-glow,.submit-button,.whats-new{
+ background-color:#e5c66a;
+ background-image:linear-gradient(120deg,#b9953e 0%,#e5c66a 24%,#fff1a8 48%,#e5c66a 68%,#b9953e 100%);
+ color:#0a1f3c;border-color:#eedb8a;font-weight:600;
+ box-shadow:inset 0 1px 2px #fff6,0 0 28px #e5c66a35;
+}
+.button-glow:hover,.submit-button:hover{background-color:#f0dc8a;border-color:#fff1a8;color:#0a1f3c;box-shadow:inset 0 3px 7px #fff5,0 7px 30px #e5c66a4d}
+.button-glow .button-arrow{filter:brightness(.15)}
+.button-simple{color:#fff;border-color:#e5c66a45;background-color:#0a1f3c99}
+.button-simple:hover{border-color:#e5c66a;background-color:#0a3d9155}
+.nav-link,.grey-link{color:#dce4f1}
+.nav-link:hover,.grey-link:hover,.white-link:hover{color:#f0dc8a}
+.ease-badge{background-color:#0a1f3c99;border-color:#e5c66a40;box-shadow:inset 0 -8px 24px #0a3d9140;color:#f0f3f8}
+.home-grid-box-wrapper{border-color:#e5c66a30}
+.home-grid-box{background-color:#0a3d9126;box-shadow:inset 0 -9px 24px #0a3d914d}
+.pricing{border-color:#e5c66a80;background-color:#0a1f3c}
+.pricing.left{border-color:#e5c66a30}
+.price{color:#eedb8a}
+.styled-box{background-color:#07162b;background-image:radial-gradient(circle at 100% 100%,#0a3d91 5%,#0a3d9100 55%);border-color:#e5c66a40;box-shadow:inset 0 -20px 78px #0a3d914d,inset 0 0 29px #ffffff14,0 35px 60px #0003}
+.cta-app-holder{border-color:#e5c66a22;background-color:#0a1f3c80}
+.feature-check-holder{background-color:#0a3d9160;border-color:#e5c66a30}
+.pac-extra .pac-kicker{color:#eedb8a}
+.pac-info dt{color:#b6c5de}.pac-info dd{color:#fff}
+.pac-info>div,.pac-faq details{border-color:#e5c66a26}
+.pac-faq summary::marker{color:#e5c66a}
+.footer-divider{border-color:#e5c66a26}
+/* Colour the retained artwork through a parent so Webflow keeps full control of animated transforms, opacity and filters. */
+.circle-wrapper{filter:hue-rotate(23deg) saturate(.65)}
+.app-holder,.cta-app-holder>.app-image,.home-grid-image-holder,.feature-grid-image-holder{filter:hue-rotate(190deg) saturate(.75)}
+.cursor-light-holder{background-image:radial-gradient(circle,#e5c66a38,#e5c66a00)}
+.red-circle{background-image:radial-gradient(circle at 50% 50%,#f0a556 36%,#f0a55600 62%)}
+.light{background-image:linear-gradient(#e9d68d 5%,#0a3d9100 67%)}
+.fade{background-image:linear-gradient(180deg,#0a1f3c00,var(--color--page-color) 21%)}
+.graident-for-logos{background-image:linear-gradient(270deg,#0a1f3c00,#0a1f3c)}
+.graident-for-logos.right{background-image:linear-gradient(45deg,#0a1f3c00,#0a1f3c)}
+:focus-visible{outline:2px solid #eedb8a;outline-offset:4px}
+@media(max-width:991px){.brand{width:165px;min-width:145px}.brand-image{width:165px;max-height:58px}.nav-menu{background-color:#0a1f3c}.nav-link{font-size:14px}}
+@media(max-width:479px){.brand{width:135px;min-width:120px}.brand-image{width:135px;max-height:48px}.footer-brand-image{width:210px}.hero-title{font-size:36px}.button-glow{font-size:13px}.hero-section.padding-top{padding-top:130px}}
