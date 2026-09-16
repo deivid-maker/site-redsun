@@ -23,7 +23,7 @@ p{color:#c0cbdc;line-height:1.65}
 .container.navbar-container{border-bottom-color:#e5c66a26}
 .brand{width:190px;min-width:160px}
 .brand-image{display:block;width:190px;max-height:68px;object-fit:contain}
-.footer-brand-image{width:240px;height:auto;max-height:100px;object-fit:contain;margin-bottom:22px}
+.footer-brand-image{width:130px;height:auto;max-height:42px;object-fit:contain;margin-bottom:8px}
 .company-logo{opacity:.7;object-fit:contain;max-width:150px}
 .hero-section.padding-top{background-image:linear-gradient(180deg,#0a1f3c00 50%,#0a1f3c 100%),url('../images/legacy/background.png');background-size:cover;background-position:center top}
 .hero-title{letter-spacing:-.04em;color:#fff}
@@ -53,10 +53,17 @@ p{color:#c0cbdc;line-height:1.65}
 .pac-info dt{color:#b6c5de}.pac-info dd{color:#fff}
 .pac-info>div,.pac-faq details{border-color:#e5c66a26}
 .pac-faq summary::marker{color:#e5c66a}
-.footer-divider{border-color:#e5c66a26}
+.footer-divider{border-color:#e5c66a18}
+.section:has(.footer-wrapper){background:#030812!important}
+.footer-wrapper .container{background:#030812!important}
 /* Colour the retained artwork through a parent so Webflow keeps full control of animated transforms, opacity and filters. */
 .circle-wrapper{filter:hue-rotate(23deg) saturate(.65)}
-.app-holder .app-image,.cta-app-holder>.app-image,.home-grid-image-holder,.feature-grid-image-holder{filter:hue-rotate(190deg) saturate(.75)}
+.app-holder .app-image,.cta-app-holder>.app-image{filter:hue-rotate(190deg) saturate(.75)}
+.feature-grid-image-holder,.feature-image{filter:none!important}
+.home-grid-image-holder{filter:none;min-height:0;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.home-grid-image{width:125%!important;max-width:125%!important;height:auto!important;object-fit:contain}
+.home-grid-image.smaller{width:130%!important;max-width:130%!important;margin-left:-7.5%}
+.home-grid-image-holder.smaller{min-height:0;align-items:flex-end;overflow:visible}
 ..app-video{display:block;width:100%;height:auto;border-radius:inherit;background:#020814}
 .cursor-light-holder{background-image:radial-gradient(circle,#e5c66a38,#e5c66a00)}
 .red-circle{background-image:radial-gradient(circle at 50% 50%,#f0a556 36%,#f0a55600 62%)}
@@ -66,4 +73,4 @@ p{color:#c0cbdc;line-height:1.65}
 .graident-for-logos.right{background-image:linear-gradient(45deg,#0a1f3c00,#0a1f3c)}
 :focus-visible{outline:2px solid #eedb8a;outline-offset:4px}
 @media(max-width:991px){.brand{width:165px;min-width:145px}.brand-image{width:165px;max-height:58px}.nav-menu{background-color:#0a1f3c}.nav-link{font-size:14px}}
-@media(max-width:479px){.brand{width:135px;min-width:120px}.brand-image{width:135px;max-height:48px}.footer-brand-image{width:210px}.hero-title{font-size:36px}.button-glow{font-size:13px}.hero-section.padding-top{padding-top:130px}}
+@media(max-width:479px){.brand{width:135px;min-width:120px}.brand-image{width:135px;max-height:48px}.footer-brand-image{width:180px}.hero-title{font-size:36px}.button-glow{font-size:13px}.hero-section.padding-top{padding-top:130px}}

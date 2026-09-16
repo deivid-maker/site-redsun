@@ -52,7 +52,7 @@ html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerc
 html=html.replace('<body>','<body id="inicio">').replace('id="readmore"','id="pilares"')
 for cls,anchor in [('new-features-holder','experiencia'),('pricing-wrapper','selecao'),('blog-grid-3x-holder','conducao'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
-hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'/checkout':FORM,'https://instagram.com':'#informacoes','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#curadoria','/template/style-guide':'#para-quem','/template/licensing':'#curadoria','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
+hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'/checkout':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
 def replace_anchor(m):
     tag=m.group(0); match=re.search(r'href="([^"]*)"',tag)
     if not match:return tag
@@ -60,7 +60,7 @@ def replace_anchor(m):
     if '/product/' in old:new=FORM
     if '/post/' in old:new='#conducao'
     if 'button-glow' in tag or 'button-simple' in tag and old!='#readmore':new=FORM
-    if 'ease-badge' in tag:new='#informacoes'
+    if 'ease-badge' in tag:new='#faq'
     if 'commerce-cart-open-link' in tag:
         new='#selecao'
         tag=re.sub(r' data-node-type="commerce-cart-open-link"| aria-haspopup="dialog"| role="button"','',tag)
@@ -76,13 +76,31 @@ html=re.sub(r'<form id="Early-Access-Emails".*?</form>',f'<div class="form-holde
 def p(prefix):return '<p>'+t(prefix)+'</p>'
 def section(id,kicker,title,content):return f'<section id="{id}" class="section pac-extra"><div class="container"><div class="section-paddings"><div class="section-center-text"><p class="pac-kicker">{kicker}</p><h2 class="title medium">{t(title)}</h2></div>{content}</div></div></section>'
 def ul(prefixes):return '<ul>'+''.join('<li>'+t(x)+'</li>' for x in prefixes)+'</ul>'
-extra=section('para-quem','Para quem é','Excelência técnica',f'<div class="pac-columns"><div>{p("Se sua agenda está cheia, mas")}{p("Muitos médicos tentam")}{p("Mas crescimento de volume")}</div><div>{ul(["Médicos donos de clínica","Profissionais em fase","Médicos com demanda","Clínicas sem processo","Profissionais que querem","Médicos que desejam"])}{p("Uma experiência para médicos")}</div></div>')
-extra+=section('margem','Volume versus margem','Atender mais não',f'<div class="pac-columns"><div class="home-grid-box pac-box"><h3>O ciclo que aumenta complexidade</h3><p>01 Mais pacientes<br>02 Mais trabalho<br>03 Mais equipe<br>04 Mais custos<br>05 Mais complexidade</p></div><div class="home-grid-box pac-box"><h3>Uma lógica mais eficiente</h3>{p("Posicionamento +")}{p("Crescimento com maior")}{p("Uma direção estratégica")}</div></div>')
-extra+=section('curadoria','Curadoria','O PAC não será',f'<div class="pac-columns"><div>{p("Esta edição será limitada")}{ul(["Não é venda","Não é inscrição","A aplicação não garante","Existe um processo"])}</div><div><h3>Por que a participação é gratuita</h3>{p("Nesta edição piloto")}{p("Transporte, hospedagem")}</div></div>')
-extra+=section('informacoes','Informações práticas','Uma experiência presencial e concentrada.', '<dl class="pac-info">'+''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k,v in [('Programa','PAC — Aceleração de Clínicas'),('Formato','Presencial'),('Duração','2 dias'),('Local','Londrina/PR'),('Vagas','Até 30 médicos'),('Condução','Dr. Daniel Botelho'),('Ecossistema','Legacy Doctors'),('Participação','Gratuita para selecionados'),('Entrada','Mediante aplicação'),('Data','A definir')])+'</dl>')
+def audience_item(text):
+    return f'<div class="pac-audience-item"><span class="pac-check-icon">✓</span><p class="pac-audience-text">{t(text)}</p></div>'
+
+audience_items = [
+    "Médicos donos de clínica",
+    "Profissionais em fase",
+    "Médicos com demanda",
+    "Clínicas sem processo",
+    "Profissionais que querem",
+    "Médicos que desejam"
+]
+
+extra=section('para-quem','Para quem é','Excelência técnica',
+    f'<div class="pac-audience-wrapper">'
+    f'<div class="pac-audience-grid">'
+    + ''.join(audience_item(x) for x in audience_items) +
+    f'</div>'
+    f'<div class="pac-audience-footer">'
+    f'<p>{t("Uma experiência para médicos")}</p>'
+    f'</div>'
+    f'</div>'
+)
+extra+='<section id="depoimentos" class="section pac-extra"><div class="container"><div class="section-paddings"><div class="section-center-text"><p class="pac-kicker">Depoimentos</p><h2 class="title medium">Resultados reais de mentorados</h2></div><div class="pac-video-testimonials"><div class="video-testimonial-card"><video controls preload="none" aria-label="Depoimento Aline Pavan"><source src="images/depoimento-aline-pavan.mp4" type="video/mp4"></video><p class="video-caption">Aline Pavan</p></div><div class="video-testimonial-card"><video controls preload="none" aria-label="Depoimento Henrique Cruvinel"><source src="images/depoimento-henrique-cruvinel.mp4" type="video/mp4"></video><p class="video-caption">Henrique Cruvinel</p></div></div></div></div></section>'
 faqs=[('O PAC é gratuito?','Nesta edição piloto, não haverá cobrança de ingresso. Os médicos selecionados poderão participar sem custo de inscrição. Transporte, hospedagem, alimentação e demais despesas não estão confirmados como inclusos.'),('Qualquer médico pode participar?','O PAC é voltado a médicos donos de clínicas e cirurgiões plásticos. Cada aplicação será analisada, e serão selecionados os profissionais mais alinhados à proposta da experiência.'),('Preencher o formulário garante uma vaga?','Não. O preenchimento da aplicação é a primeira etapa do processo de seleção e não garante participação.'),('Quantos médicos serão selecionados?','Esta edição será limitada a até 30 médicos.'),('Onde acontecerá?','Em Londrina, no Paraná. A data está a definir.'),('Quanto tempo dura?','A imersão tem duração de 2 dias presenciais.'),('Quem conduz o programa?','Dr. Daniel Botelho, em uma iniciativa do ecossistema Legacy Doctors.'),('Preciso informar meu faturamento?','Não há solicitação de faturamento nesta etapa da aplicação.')]
 extra+=section('faq','FAQ','Perguntas frequentes.', '<div class="pac-faq">'+''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)+'</div>')
-extra+=f'<section class="section pac-extra"><div class="container"><div class="pac-columns"><div><h2>Aplicar para o PAC.</h2>{p("Preencha suas informações")}{ul(["Sem cobrança de ingresso","Sem compromisso de compra","Sem solicitação de faturamento"])}</div><div><p>Nome completo · WhatsApp · Cidade / UF · Instagram · Especialidade médica</p><a class="button-glow w-inline-block" href="{FORM}" target="_blank" rel="noopener noreferrer">Preencher aplicação</a>{p("Após o envio")}</div></div><div class="pac-material"><h3>Resultados e provas</h3><p>Depoimentos em vídeo · Histórias de médicos · Cases da metodologia · Resultados específicos</p><p>Material em atualização</p></div></div></section>'
 html=html.replace('<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',extra+'<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',1)
 html=html.replace('</head>','<link rel="stylesheet" href="css/pac-restored.css"></head>')
 images=re.findall(r'<img\b[^>]*>',original)
@@ -115,6 +133,24 @@ html=re.sub(
     count=1,
 )
 (ROOT/'images/video-pac.mp4').stat()
+# Replace CTA bottom image with video mosaico
+html=re.sub(
+    r'(<div class="cta-app-holder">)<img src="images/673c878f2b1a8d87c7549905_App\.jpg"[^>]*class="app-image">',
+    r'\1<video class="cta-app-video" autoplay muted loop playsinline preload="metadata" aria-label="Mosaico PAC"><source src="images/video-mosaico.mp4" type="video/mp4"></video>',
+    html,
+    count=1,
+)
+(ROOT/'images/video-mosaico.mp4').stat()
+# Replace blog images with Dr. Daniel Botelho photos
+html=html.replace('images/673c8623b53e085c22dcdefe_Blog%20Image%2001.jpg','images/daniel-botelho-1.jpg')
+html=html.replace('images/673c8623b53e085c22dcdefe_Blog%2520Image%252001-p-500.jpg','images/daniel-botelho-1-p-500.jpg')
+html=html.replace('images/673c8623b53e085c22dcdefe_Blog%2520Image%252001-p-800.jpg','images/daniel-botelho-1-p-800.jpg')
+html=html.replace('images/673c8623b53e085c22dcde8b_Blog%20Image%2002.jpg','images/daniel-botelho-2.jpg')
+html=html.replace('images/673c8623b53e085c22dcde8b_Blog%2520Image%252002-p-500.jpg','images/daniel-botelho-2-p-500.jpg')
+html=html.replace('images/673c8623b53e085c22dcde8b_Blog%2520Image%252002-p-800.jpg','images/daniel-botelho-2-p-800.jpg')
+html=html.replace('images/673c8623b53e085c22dcdf17_Blog%20Image%2003.jpg','images/daniel-botelho-3.jpg')
+html=html.replace('images/673c8623b53e085c22dcdf17_Blog%2520Image%252003-p-500.jpg','images/daniel-botelho-3-p-500.jpg')
+html=html.replace('images/673c8623b53e085c22dcdf17_Blog%2520Image%252003-p-800.jpg','images/daniel-botelho-3-p-800.jpg')
 (ROOT/'index.html').write_text(html,encoding='utf-8')
 for ref in re.findall(r'(?:src|href)="((?:images|css|js)/[^"?#]+)"',html):assert (ROOT/unquote(ref)).is_file(),ref
 for group in re.findall(r'srcset="([^"]+)"',html):
@@ -125,5 +161,5 @@ assert all(a in ids for a in re.findall(r'href="#([^"]+)"',html))
 assert 'Lorem ipsum' not in html
 dist=ROOT/'dist';dist.mkdir(exist_ok=True)
 shutil.copy2(ROOT/'index.html',dist/'index.html')
-for folder in ('css','images','js','fonts'):shutil.copytree(ROOT/folder,dist/folder,dirs_exist_ok=True)
+for folder in ('css','images','js','fonts'):shutil.copytree(ROOT/folder,dist/folder,dirs_exist_ok=True,ignore=shutil.ignore_patterns('*.tmp'))
 print('Restored',len(images),'original images and',len(hooks),'animation hooks. Scripts, images, variants and links verified.')
