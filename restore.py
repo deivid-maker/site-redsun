@@ -108,6 +108,13 @@ assert len(images)==len(re.findall(r'<img\b[^>]*>',html))
 assert hooks==re.findall(r'data-w-id="([^"]+)"',html)
 nonlogo=lambda s:[x for x in re.findall(r'<img\b[^>]*>',s) if not any(c in x for c in ['class="brand-image"','class="footer-brand-image"','class="company-logo"'])]
 assert nonlogo(before_brand)==nonlogo(html), 'Non-brand imagery changed'
+html=re.sub(
+    r'<img src="images/673c878f2b1a8d87c7549905_App\.jpg"[^>]*class="app-image">',
+    '<video class="app-video" autoplay muted loop playsinline preload="metadata" aria-label="Apresentação do PAC"><source src="images/video-pac.mp4" type="video/mp4"></video>',
+    html,
+    count=1,
+)
+(ROOT/'images/video-pac.mp4').stat()
 (ROOT/'index.html').write_text(html,encoding='utf-8')
 for ref in re.findall(r'(?:src|href)="((?:images|css|js)/[^"?#]+)"',html):assert (ROOT/unquote(ref)).is_file(),ref
 for group in re.findall(r'srcset="([^"]+)"',html):

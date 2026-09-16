@@ -56,7 +56,8 @@ p{color:#c0cbdc;line-height:1.65}
 .footer-divider{border-color:#e5c66a26}
 /* Colour the retained artwork through a parent so Webflow keeps full control of animated transforms, opacity and filters. */
 .circle-wrapper{filter:hue-rotate(23deg) saturate(.65)}
-.app-holder,.cta-app-holder>.app-image,.home-grid-image-holder,.feature-grid-image-holder{filter:hue-rotate(190deg) saturate(.75)}
+.app-holder .app-image,.cta-app-holder>.app-image,.home-grid-image-holder,.feature-grid-image-holder{filter:hue-rotate(190deg) saturate(.75)}
+..app-video{display:block;width:100%;height:auto;border-radius:inherit;background:#020814}
 .cursor-light-holder{background-image:radial-gradient(circle,#e5c66a38,#e5c66a00)}
 .red-circle{background-image:radial-gradient(circle at 50% 50%,#f0a556 36%,#f0a55600 62%)}
 .light{background-image:linear-gradient(#e9d68d 5%,#0a3d9100 67%)}
