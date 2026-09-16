@@ -102,7 +102,6 @@ extra+='<section id="depoimentos" class="section pac-extra"><div class="containe
 faqs=[('O PAC é gratuito?','Nesta edição piloto, não haverá cobrança de ingresso. Os médicos selecionados poderão participar sem custo de inscrição. Transporte, hospedagem, alimentação e demais despesas não estão confirmados como inclusos.'),('Qualquer médico pode participar?','O PAC é voltado a médicos donos de clínicas e cirurgiões plásticos. Cada aplicação será analisada, e serão selecionados os profissionais mais alinhados à proposta da experiência.'),('Preencher o formulário garante uma vaga?','Não. O preenchimento da aplicação é a primeira etapa do processo de seleção e não garante participação.'),('Quantos médicos serão selecionados?','Esta edição será limitada a até 30 médicos.'),('Onde acontecerá?','Em Londrina, no Paraná. A data está a definir.'),('Quanto tempo dura?','A imersão tem duração de 2 dias presenciais.'),('Quem conduz o programa?','Dr. Daniel Botelho, em uma iniciativa do ecossistema Legacy Doctors.'),('Preciso informar meu faturamento?','Não há solicitação de faturamento nesta etapa da aplicação.')]
 extra+=section('faq','FAQ','Perguntas frequentes.', '<div class="pac-faq">'+''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)+'</div>')
 html=html.replace('<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',extra+'<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',1)
-html=html.replace('</head>','<link rel="stylesheet" href="css/pac-restored.css"></head>')
 images=re.findall(r'<img\b[^>]*>',original)
 assert images==re.findall(r'<img\b[^>]*>',html),'Original image markup changed'
 hooks=re.findall(r'data-w-id="([^"]+)"',original)
@@ -121,7 +120,7 @@ def brand_logo(match):
     return tag
 html=re.sub(r'<img\b[^>]*>',brand_logo,html)
 html=html.replace('images/673c86594c8e945d0a8d39fd_Fav.png','images/legacy/brand-icon.png').replace('images/673c865c3de8eb55a5db0099_Web.png','images/legacy/brand-icon.png')
-html=html.replace('</head>','<link rel="stylesheet" href="css/legacy-brand.css"></head>')
+html=html.replace('</head>','<link rel="stylesheet" href="css/legacy-brand.css"><link rel="stylesheet" href="css/pac-restored.css"></head>')
 assert len(images)==len(re.findall(r'<img\b[^>]*>',html))
 assert hooks==re.findall(r'data-w-id="([^"]+)"',html)
 nonlogo=lambda s:[x for x in re.findall(r'<img\b[^>]*>',s) if not any(c in x for c in ['class="brand-image"','class="footer-brand-image"','class="company-logo"'])]

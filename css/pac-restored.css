@@ -32,7 +32,7 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .menu-link-wrapper{display:flex!important;gap:20px!important}
 .menu-links-holder{display:flex!important;flex-direction:column!important;gap:5px!important}
 @media(max-width:767px){
-.home-grid-image{width:280px!important}
+.home-grid-image{width:280px!important;max-width:280px!important}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
 .pac-extra .container{padding:20px}
 .pac-box{padding:25px}
