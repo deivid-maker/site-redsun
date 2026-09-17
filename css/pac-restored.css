@@ -44,6 +44,8 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 }
 @media(max-width:767px){
 .home-grid-image{width:280px!important;max-width:280px!important}
+.home-grid-box{min-height:auto!important}
+.home-grid-image-holder{min-height:auto!important}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
 .pac-extra .container{padding:20px}
 .pac-box{padding:25px}
@@ -55,6 +57,8 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-extra p,.pac-extra li{font-size:15px}
 .center-hero-paragraph-holder.smaller{max-width:100%}
 .pac-video-testimonials{grid-template-columns:1fr;gap:20px}
+.video-testimonial-card{max-width:300px;margin:0 auto}
+.video-testimonial-card video{width:auto!important;max-width:100%;max-height:380px}
 .footer-wrapper{padding:30px 0 20px!important}
 .footer-content{grid-template-columns:1fr!important;gap:20px!important}
 .menu-link-wrapper{flex-direction:column!important;gap:20px!important}
