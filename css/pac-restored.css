@@ -37,6 +37,11 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-orbit{height:100px!important;margin:8px auto -15px!important}
 .pac-orbit>img{width:110%!important}
 }
+@media(max-width:991px){
+.w-nav-menu .nav-link{padding:12px 8px!important}
+.nav-links{gap:8px 40px!important}
+.cart-button{min-height:44px!important;display:inline-flex!important;align-items:center!important}
+}
 @media(max-width:767px){
 .home-grid-image{width:280px!important;max-width:280px!important}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
