@@ -10,11 +10,11 @@ def t(prefix): return escape(next(x for x in lines if x.startswith(prefix)))
 def paragraphs(*prefixes): return '<br><br>'.join(t(x) for x in prefixes)
 html=original
 mapping={
-'Home':'Início','Features':'Pilares','About':'Experiência','Pricing':'Seleção','Blog':'Condução','Contact':'Aplicação',
+'Home':'Início','About':'Experiência','Pricing':'Seleção','Blog':'Condução','Contact':'Aplicação',
 'Book a Demo':'Aplicar para o PAC','Whats New':'Imersão gratuita','Ease Update v0.1':'2 dias · Londrina/PR',
 'Intelligent Solutions Powered by AI.':t('Agenda cheia não'),
 'Gain clarity and harness the power of your data with RedSun. Our intuitive dashboard provides real-time analytics.':paragraphs('Descubra o que','Uma imersão presencial de 2'),
-'Read More':'Conheça os pilares','Join 4,000+ companies already growing':'PAC — Programa de Aceleração de Clínicas · Até 30 médicos',
+'Read More':'Conheça a experiência','Join 4,000+ companies already growing':'PAC — Programa de Aceleração de Clínicas · Até 30 médicos',
 'Balance':'Precificação','Users':'Posicionamento','Create':'Vendas','AI Sessions':'Gestão',
 'Powerful Features':t('As alavancas que'),
 "Explore the frontier of coding evolution with RedSun Unleashed. Our latest features redefine the boundaries of what's possible in coding tools.":paragraphs('Dois dias para olhar','Uma imersão presencial criada'),
@@ -41,10 +41,10 @@ def replace_text(m):
     return '>'+mapping.get(key,raw)+'<'
 html=re.sub(r'>([^<>]+)<',replace_text,html)
 html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerce website template','PAC — Programa de Aceleração de Clínicas | Legacy Doctors')
-html=html.replace('<body>','<body id="inicio">').replace('id="readmore"','id="pilares"')
+html=html.replace('<body>','<body id="inicio">')
 for cls,anchor in [('new-features-holder','experiencia'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
-hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
+hrefs={'/':'#inicio','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#experiencia','https://Google.com':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
 def replace_anchor(m):
     tag=m.group(0); match=re.search(r'href="([^"]*)"',tag)
     if not match:return tag
