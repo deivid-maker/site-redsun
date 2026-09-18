@@ -21,13 +21,6 @@ mapping={
 'Top Management, to help you see the bigger picture':'Estrutura para escala',
 'Helping you with fast-reading charts on the go':t('Profundidade, discussão'),
 'See Doc':'Aplicar para o PAC','Customizable layouts for efficient coding.':'Precificação e posicionamento','Font preferences to match your style.':'Processo comercial e vendas','Create multiple profiles for versatility.':'Gestão, indicadores e equipe',
-'Pricing Plans for Success':t('Uma seleção em três'),
-'Discover the perfect plan for your coding journey with RedSun. Our pricing options are designed to provide you with the flexibility':paragraphs('Esta edição será limitada','O preenchimento da aplicação'),
-'$49 USD':'01','Basic plan':'Aplique','$79 USD':'02','Business plan':'Análise','$90 USD':'03','Enterprise plan':'Seleção','Get started':'Aplicar para o PAC',
-'Access to all basic features':'Até 30 médicos','Basic reporting and analytics':'2 dias presenciais','Up to 10 individual users':'Londrina/PR','20GB individual data each user':'Gratuita para selecionados','Basic chat and email support':'Mediante aplicação','20GB Easter Egg Text':'Sem compromisso de compra',
-'Insights &amp; Inspiration':'Com Dr. Daniel Botelho.',
-"Dive into the heart of innovation with our 'Coding Chronicles' blog section. Explore a rich tapestry of articles, tutorials, and insights that unravel.":t('A imersão será conduzida'),
-'Digital Age':'Quem conduz','Misconceptions':'Legacy Doctors','Web Design':'Resultados e provas',
 'Transform Your Work with Redsun':t('Se sua agenda já está'),
 'Embark on a transformative journey of coding excellence with Redsun':paragraphs('Pode ser estruturar','O PAC reunirá'),
 'Aliquam et tellus urna. Phasellus egetadipiscing elit. Mauris id nunc odio. Aliquam et tellus urna.':'PAC — Programa de Aceleração de Clínicas. Uma iniciativa do ecossistema Legacy Doctors.',
@@ -40,8 +33,7 @@ special={
 'Lorem ipsum dolor sit amet consectetur. Molestie lorem arcu':iter([t('Saia da lógica'),t('Construa uma percepção'),t('Estruture um processo'),t('Organize a operação')]),
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa massa id arcu blandit dignissim contum volutpat dolor fermentum, justo tempor.':iter([t('Identifique gargalos'),t('Os participantes aprofundarão')]),
 'Vulputate enim ante egestas commodo in.':iter(['Gestão · Posicionamento · Precificação · Marketing · Vendas · Processos · Estrutura comercial · Crescimento','Processos, crescimento e escala. Imersão presencial de 2 dias em Londrina/PR.']),
-'Lorem ipsum dolor sit amet consectetur metus massa et amet cursus sit semper justo nascetur sem sapien ultrices nec aenean diam quisque.':iter([t('Preencha o formulário')]*2+[t('A equipe analisará')]*2+[t('Os médicos mais alinhados')]*2),
-'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa massa id.':iter([t('Trajetória profissional'),t('O PAC faz parte'),'+200% '+t('de aumento no ticket')+'<br><br>'+t('Os resultados apresentados')])}
+}
 # Replace text nodes only; all original markup, image variants and animation scripts remain.
 def replace_text(m):
     raw=m.group(1); key=raw.strip()
@@ -50,7 +42,7 @@ def replace_text(m):
 html=re.sub(r'>([^<>]+)<',replace_text,html)
 html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerce website template','PAC — Programa de Aceleração de Clínicas | Legacy Doctors')
 html=html.replace('<body>','<body id="inicio">').replace('id="readmore"','id="pilares"')
-for cls,anchor in [('new-features-holder','experiencia'),('blog-grid-3x-holder','conducao'),('cta-wrapper','aplicacao')]:
+for cls,anchor in [('new-features-holder','experiencia'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
 hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
 def replace_anchor(m):
@@ -153,15 +145,6 @@ html=re.sub(
 )
 (ROOT/'images/video-mosaico.mp4').stat()
 # Replace blog images with Dr. Daniel Botelho photos
-html=html.replace('images/673c8623b53e085c22dcdefe_Blog%20Image%2001.jpg','images/daniel-botelho-1.jpg')
-html=html.replace('images/673c8623b53e085c22dcdefe_Blog%2520Image%252001-p-500.jpg','images/daniel-botelho-1-p-500.jpg')
-html=html.replace('images/673c8623b53e085c22dcdefe_Blog%2520Image%252001-p-800.jpg','images/daniel-botelho-1-p-800.jpg')
-html=html.replace('images/673c8623b53e085c22dcde8b_Blog%20Image%2002.jpg','images/daniel-botelho-2.jpg')
-html=html.replace('images/673c8623b53e085c22dcde8b_Blog%2520Image%252002-p-500.jpg','images/daniel-botelho-2-p-500.jpg')
-html=html.replace('images/673c8623b53e085c22dcde8b_Blog%2520Image%252002-p-800.jpg','images/daniel-botelho-2-p-800.jpg')
-html=html.replace('images/673c8623b53e085c22dcdf17_Blog%20Image%2003.jpg','images/daniel-botelho-3.jpg')
-html=html.replace('images/673c8623b53e085c22dcdf17_Blog%2520Image%252003-p-500.jpg','images/daniel-botelho-3-p-500.jpg')
-html=html.replace('images/673c8623b53e085c22dcdf17_Blog%2520Image%252003-p-800.jpg','images/daniel-botelho-3-p-800.jpg')
 (ROOT/'index.html').write_text(html,encoding='utf-8')
 for ref in re.findall(r'(?:src|href)="((?:images|css|js)/[^"?#]+)"',html):assert (ROOT/unquote(ref)).is_file(),ref
 for group in re.findall(r'srcset="([^"]+)"',html):

@@ -48,6 +48,21 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-fact strong{display:block;font-family:Mulish,Arial,sans-serif;font-size:18px;color:#f4f3f5;margin-bottom:6px;letter-spacing:-.02em}
 .pac-fact span{font-size:13px;line-height:1.5;color:#9293a0}
 .pac-selection-cta{text-align:center;margin-top:46px}
+/* Dr. Daniel Botelho: editorial authority section */
+.pac-founder{padding:80px 0}
+.pac-founder-grid{display:grid;grid-template-columns:45% 55%;gap:64px;align-items:center;max-width:1120px;margin:0 auto}
+.pac-founder-photo{margin:0}
+.founder-photo{width:100%;height:auto;display:block;border-radius:16px;object-fit:cover;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.pac-founder-content{max-width:540px}
+.pac-founder-content .pac-kicker{color:#f99a59;text-transform:uppercase;font-size:13px;letter-spacing:.12em;margin:0 0 12px}
+.pac-founder-content h2{margin:0 0 4px}
+.pac-founder-headline{font-family:Mulish,Arial,sans-serif;font-size:26px;line-height:1.25;color:#f4f3f5;letter-spacing:-.02em;margin:8px 0 18px}
+.pac-founder-lead{font-size:16px;line-height:1.75;color:#b6c5de;margin:0 0 30px;max-width:500px}
+.pac-founder-facts{margin:0}
+.pac-founder-facts>div{display:flex;gap:20px;padding:16px 0;border-top:1px solid #ffffff12}
+.pac-founder-facts>div:last-child{border-bottom:1px solid #ffffff12}
+.pac-founder-facts dt{flex:0 0 118px;color:#e5c66a;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:2px}
+.pac-founder-facts dd{margin:0;color:#dce4f1;font-size:15px;line-height:1.55}
 @media(max-width:639px){
 .wrap{width:calc(100% - 24px)!important}
 .section-pad{padding-top:45px!important;padding-bottom:20px!important}
@@ -68,6 +83,10 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-timeline .pac-step{padding-top:22px}
 .pac-facts{grid-template-columns:1fr 1fr;margin-top:44px}
 .pac-selection-intro{font-size:15px}
+.pac-founder{padding:48px 0}
+.pac-founder-grid{grid-template-columns:1fr;gap:30px}
+.pac-founder-headline{font-size:22px}
+.pac-founder-facts dt{flex-basis:96px;font-size:11px}
 .pac-extra .container{padding:20px}
 .pac-box{padding:25px}
 .hero-title{font-size:32px!important}
