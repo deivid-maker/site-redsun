@@ -63,6 +63,11 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-founder-facts>div:last-child{border-bottom:1px solid #ffffff12}
 .pac-founder-facts dt{flex:0 0 118px;color:#e5c66a;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:2px}
 .pac-founder-facts dd{margin:0;color:#dce4f1;font-size:15px;line-height:1.55}
+/* Hero: make the headline the single focal point */
+.home-hero .hero-title{font-size:clamp(44px,5.8vw,78px);line-height:1.06;font-weight:600;letter-spacing:-.04em;margin:6px auto 30px;max-width:960px}
+.home-hero .badge-wrapper{margin-bottom:30px}
+.home-hero .center-hero-paragraph-holder p{color:#aeb7c6;font-size:17px;line-height:1.72}
+.home-hero .center-hero-paragraph-holder.smaller{margin-left:auto;margin-right:auto}
 @media(max-width:639px){
 .wrap{width:calc(100% - 24px)!important}
 .section-pad{padding-top:45px!important;padding-bottom:20px!important}
