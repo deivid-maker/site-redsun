@@ -10,7 +10,7 @@ def t(prefix): return escape(next(x for x in lines if x.startswith(prefix)))
 def paragraphs(*prefixes): return '<br><br>'.join(t(x) for x in prefixes)
 html=original
 mapping={
-'Home':'Início','Features':'Pilares','About':'Experiência','Pricing':'Seleção','Blog':'Condução','Contact':'Aplicação','Cart':'Vagas',
+'Home':'Início','Features':'Pilares','About':'Experiência','Pricing':'Seleção','Blog':'Condução','Contact':'Aplicação',
 'Book a Demo':'Aplicar para o PAC','Whats New':'Imersão gratuita','Ease Update v0.1':'2 dias · Londrina/PR',
 'Intelligent Solutions Powered by AI.':t('Agenda cheia não'),
 'Gain clarity and harness the power of your data with RedSun. Our intuitive dashboard provides real-time analytics.':paragraphs('Descubra o que','Uma imersão presencial de 2'),
@@ -52,7 +52,7 @@ html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerc
 html=html.replace('<body>','<body id="inicio">').replace('id="readmore"','id="pilares"')
 for cls,anchor in [('new-features-holder','experiencia'),('pricing-wrapper','selecao'),('blog-grid-3x-holder','conducao'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
-hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'/checkout':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
+hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
 def replace_anchor(m):
     tag=m.group(0); match=re.search(r'href="([^"]*)"',tag)
     if not match:return tag
@@ -61,16 +61,10 @@ def replace_anchor(m):
     if '/post/' in old:new='#conducao'
     if 'button-glow' in tag or 'button-simple' in tag and old!='#readmore':new=FORM
     if 'ease-badge' in tag:new='#faq'
-    if 'commerce-cart-open-link' in tag:
-        new='#selecao'
-        tag=re.sub(r' data-node-type="commerce-cart-open-link"| aria-haspopup="dialog"| role="button"','',tag)
-        tag=tag.replace('aria-label="Open cart"','aria-label="Até 30 vagas"')
     tag=tag.replace('href="'+old+'"','href="'+new+'"')
     if new==FORM and 'target=' not in tag:tag=tag[:-1]+' target="_blank" rel="noopener noreferrer">'
     return tag
 html=re.sub(r'<a\b[^>]*>',replace_anchor,html)
-html=re.sub(r'<div[^>]*class="w-commerce-commercecartopenlinkcount cart-number"[^>]*>0</div>','<div class="cart-number">30</div>',html)
-html=re.sub(r'(<div[^>]*class="[^"]*cart-quantity[^\"]*"[^>]*>)0(<)',r'\g<1>30\2',html)
 # The original CTA panel and its animated dashboard remain; applications use Respondi.
 html=re.sub(r'<form id="Early-Access-Emails".*?</form>',f'<div class="form-holder"><div class="form"><a class="button-glow w-inline-block" href="{FORM}" target="_blank" rel="noopener noreferrer">Aplicar para o PAC</a></div></div>',html,flags=re.S)
 def p(prefix):return '<p>'+t(prefix)+'</p>'
