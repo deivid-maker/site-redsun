@@ -59,6 +59,7 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-founder-facts dt{flex:0 0 118px;color:#e5c66a;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:2px}
 .pac-founder-facts dd{margin:0;color:#dce4f1;font-size:15px;line-height:1.55}
 /* Experiencia: breathing room between the intro block and the feature blocks */
+#experiencia{margin-top:88px!important}
 #experiencia .new-features-grid + .new-features-grid{margin-top:96px}
 /* Hero: make the headline the single focal point */
 .home-hero .hero-title{font-size:clamp(44px,5.8vw,78px);line-height:1.06;font-weight:600;letter-spacing:-.04em;margin:6px auto 30px;max-width:960px}
@@ -77,6 +78,7 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .cart-button{min-height:44px!important;display:inline-flex!important;align-items:center!important}
 }
 @media(max-width:767px){
+#experiencia{margin-top:44px!important}
 #experiencia .new-features-grid + .new-features-grid{margin-top:52px}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
 .pac-timeline{grid-template-columns:1fr;gap:26px;margin-top:34px}
