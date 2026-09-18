@@ -31,6 +31,23 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .footer-copyright-holder{font-size:11px!important;opacity:0.75}
 .menu-link-wrapper{display:flex!important;gap:20px!important}
 .menu-links-holder{display:flex!important;flex-direction:column!important;gap:5px!important}
+/* Selection: elegant timeline + single facts row */
+.pac-selection{padding-top:40px}
+#selecao .section-center-text{display:block;max-width:760px;margin:0 auto;text-align:center}
+#selecao .section-paddings{padding:80px 0}
+.pac-selection-intro{max-width:640px;margin:14px auto 0;color:#b6c5de;font-size:16px;line-height:1.7}
+.pac-timeline{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:44px;max-width:980px;margin:58px auto 0;padding:0}
+.pac-timeline .pac-step{position:relative;padding-top:30px}
+.pac-timeline .pac-step:before{content:"";position:absolute;top:9px;left:0;right:0;height:1px;background:linear-gradient(90deg,#e5c66a66,#ffffff08)}
+.pac-timeline .pac-step:last-child:before{background:linear-gradient(90deg,#e5c66a66,#ffffff08)}
+.pac-step-num{display:block;font-family:Mulish,Arial,sans-serif;font-size:34px;font-weight:700;color:#e5c66a;letter-spacing:-.03em;line-height:1;margin-bottom:16px}
+.pac-step-title{font-size:20px;line-height:1.25;margin:0 0 10px}
+.pac-step p{font-size:15px;line-height:1.65;color:#a9aab5;margin:0}
+.pac-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:980px;margin:64px auto 0;background:#ffffff14;border:1px solid #ffffff14;border-radius:14px;overflow:hidden}
+.pac-fact{background:#0b0f16;padding:28px 22px;text-align:center}
+.pac-fact strong{display:block;font-family:Mulish,Arial,sans-serif;font-size:18px;color:#f4f3f5;margin-bottom:6px;letter-spacing:-.02em}
+.pac-fact span{font-size:13px;line-height:1.5;color:#9293a0}
+.pac-selection-cta{text-align:center;margin-top:46px}
 @media(max-width:639px){
 .wrap{width:calc(100% - 24px)!important}
 .section-pad{padding-top:45px!important;padding-bottom:20px!important}
@@ -47,6 +64,10 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .home-grid-box{min-height:auto!important}
 .home-grid-image-holder{min-height:auto!important}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
+.pac-timeline{grid-template-columns:1fr;gap:26px;margin-top:34px}
+.pac-timeline .pac-step{padding-top:22px}
+.pac-facts{grid-template-columns:1fr 1fr;margin-top:44px}
+.pac-selection-intro{font-size:15px}
 .pac-extra .container{padding:20px}
 .pac-box{padding:25px}
 .hero-title{font-size:32px!important}

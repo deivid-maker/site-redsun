@@ -50,7 +50,7 @@ def replace_text(m):
 html=re.sub(r'>([^<>]+)<',replace_text,html)
 html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerce website template','PAC — Programa de Aceleração de Clínicas | Legacy Doctors')
 html=html.replace('<body>','<body id="inicio">').replace('id="readmore"','id="pilares"')
-for cls,anchor in [('new-features-holder','experiencia'),('pricing-wrapper','selecao'),('blog-grid-3x-holder','conducao'),('cta-wrapper','aplicacao')]:
+for cls,anchor in [('new-features-holder','experiencia'),('blog-grid-3x-holder','conducao'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
 hrefs={'/':'#inicio','/features':'#pilares','/about':'#experiencia','/pricing':'#selecao','/blog':'#conducao','/contact':FORM,'#readmore':'#pilares','https://Google.com':FORM,'https://instagram.com':'#faq','https://fb.com':'#experiencia','https://linkedin.com':'#selecao','https://twitter.com':'#depoimentos','/template/style-guide':'#para-quem','/template/licensing':'#depoimentos','/template/instructions':'#faq','/template/change-log':FORM,'http://madebyoversight.com/':'#conducao','https://webflow.com/':'#conducao'}
 def replace_anchor(m):
@@ -96,6 +96,24 @@ extra+='<section id="depoimentos" class="section pac-extra"><div class="containe
 faqs=[('O PAC é gratuito?','Nesta edição piloto, não haverá cobrança de ingresso. Os médicos selecionados poderão participar sem custo de inscrição. Transporte, hospedagem, alimentação e demais despesas não estão confirmados como inclusos.'),('Qualquer médico pode participar?','O PAC é voltado a médicos donos de clínicas e cirurgiões plásticos. Cada aplicação será analisada, e serão selecionados os profissionais mais alinhados à proposta da experiência.'),('Preencher o formulário garante uma vaga?','Não. O preenchimento da aplicação é a primeira etapa do processo de seleção e não garante participação.'),('Quantos médicos serão selecionados?','Esta edição será limitada a até 30 médicos.'),('Onde acontecerá?','Em Londrina, no Paraná. A data está a definir.'),('Quanto tempo dura?','A imersão tem duração de 2 dias presenciais.'),('Quem conduz o programa?','Dr. Daniel Botelho, em uma iniciativa do ecossistema Legacy Doctors.'),('Preciso informar meu faturamento?','Não há solicitação de faturamento nesta etapa da aplicação.')]
 extra+=section('faq','FAQ','Perguntas frequentes.', '<div class="pac-faq">'+''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)+'</div>')
 html=html.replace('<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',extra+'<div data-w-id="8ed71055-6ae7-5324-a6d4-54fc76e0e2d9"',1)
+# Selection section: single elegant timeline + one facts row + one CTA (replaces the old repeated pricing cards)
+steps=[('01','Aplicação','O médico envia suas informações profissionais e dados sobre o momento atual da clínica.'),
+       ('02','Análise','A equipe do PAC analisa o perfil e verifica o alinhamento com a proposta da imersão.'),
+       ('03','Seleção','Os profissionais selecionados recebem o contato da equipe com as próximas orientações.')]
+facts=[('Até 30 médicos','Turma reduzida.'),('2 dias','Experiência presencial.'),('Londrina / PR','Imersão presencial.'),('Mediante seleção','A aplicação não garante participação.')]
+selection=('<section id="selecao" class="section pac-selection"><div class="container"><div class="section-paddings">'
+    '<div class="section-center-text"><p class="pac-kicker">Processo seletivo</p>'
+    '<h2 class="title medium">Uma seleção em três etapas.</h2>'
+    '<p class="pac-selection-intro">Esta edição é limitada a até 30 médicos. Cada aplicação é analisada individualmente — e a aplicação não garante participação.</p></div>'
+    '<ol class="pac-timeline">'
+    +''.join(f'<li class="pac-step"><span class="pac-step-num">{n}</span><h3 class="pac-step-title">{t2}</h3><p>{d}</p></li>' for n,t2,d in steps)+
+    '</ol>'
+    '<div class="pac-facts">'
+    +''.join(f'<div class="pac-fact"><strong>{a}</strong><span>{b}</span></div>' for a,b in facts)+
+    '</div>'
+    f'<div class="pac-selection-cta"><a class="button-glow w-inline-block" href="{FORM}" target="_blank" rel="noopener noreferrer">Aplicar para o PAC</a></div>'
+    '</div></div></section>')
+html=html.replace('<div id="pac-selection-slot"></div>',selection)
 images=re.findall(r'<img\b[^>]*>',original)
 assert images==re.findall(r'<img\b[^>]*>',html),'Original image markup changed'
 hooks=re.findall(r'data-w-id="([^"]+)"',original)
