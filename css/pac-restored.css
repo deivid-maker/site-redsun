@@ -100,6 +100,11 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .cart-button{min-height:44px!important;display:inline-flex!important;align-items:center!important}
 }
 @media(max-width:767px){
+.hero-section.padding-top{padding-top:88px}
+.hero-content .animate-on-load-02{margin-top:26px}
+.home-hero .hero-title{margin:0 auto 24px!important}
+.hero-content .animate-on-load-03{margin-bottom:32px}
+.hero-content .hero-button-holder{margin-top:4px}
 #experiencia{margin-top:44px!important}
 #experiencia .new-features-grid + .new-features-grid{margin-top:52px}
 .pac-columns,.pac-info{grid-template-columns:1fr;gap:20px}
