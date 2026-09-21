@@ -100,6 +100,9 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .cart-button{min-height:44px!important;display:inline-flex!important;align-items:center!important}
 }
 @media(max-width:767px){
+#aplicacao .cta-container{flex-direction:column!important;align-items:stretch!important;padding:30px 22px!important;gap:24px!important;max-width:100%!important}
+#aplicacao .cta-form-holder{flex:none!important;width:100%!important;min-width:0!important;order:1}
+#aplicacao .cta-app-holder{flex:none!important;width:100%!important;max-width:260px!important;margin:0 auto!important;order:2}
 .hero-section.padding-top{padding-top:88px}
 .hero-content .animate-on-load-02{margin-top:26px}
 .home-hero .hero-title{margin:0 auto 24px!important}
