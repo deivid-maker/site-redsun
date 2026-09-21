@@ -39,7 +39,7 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-step-title{font-size:20px;line-height:1.25;margin:0 0 10px}
 .pac-step p{font-size:15px;line-height:1.65;color:#a9aab5;margin:0}
 .pac-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:980px;margin:64px auto 0;background:#ffffff14;border:1px solid #ffffff14;border-radius:14px;overflow:hidden}
-.pac-fact{background:#0b0f16;padding:28px 22px;text-align:center}
+.pac-fact{padding:28px 22px;text-align:center;background-color:#2b2f36;background-image:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,0) 24%,rgba(0,0,0,.22) 100%),repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,rgba(0,0,0,.06) 1px,rgba(0,0,0,.06) 2px),linear-gradient(180deg,#454a52 0%,#2d3138 47%,#363b43 53%,#1f2229 100%);background-blend-mode:overlay,normal,normal}
 .pac-fact strong{display:block;font-family:Mulish,Arial,sans-serif;font-size:18px;color:#f4f3f5;margin-bottom:6px;letter-spacing:-.02em}
 .pac-fact span{font-size:13px;line-height:1.5;color:#9293a0}
 .pac-selection-cta{text-align:center;margin-top:46px}
