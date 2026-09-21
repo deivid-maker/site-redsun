@@ -14,16 +14,16 @@ mapping={
 'Book a Demo':'Aplicar para o PAC','Whats New':'Imersão gratuita','Ease Update v0.1':'2 dias · Londrina/PR',
 'Intelligent Solutions Powered by AI.':t('Agenda cheia não'),
 'Gain clarity and harness the power of your data with RedSun. Our intuitive dashboard provides real-time analytics.':paragraphs('Descubra o que','Uma imersão presencial de 2'),
-'Read More':'Conheça a experiência','Join 4,000+ companies already growing':'PAC — Programa de Aceleração de Clínicas · Até 30 médicos',
+'Read More':'Conheça a experiência','Join 4,000+ companies already growing':'PAC: Programa de Aceleração de Clínicas · Até 30 médicos',
 'Balance':'Precificação','Users':'Posicionamento','Create':'Vendas','AI Sessions':'Gestão',
-'Powerful Features':t('As alavancas que'),
-"Explore the frontier of coding evolution with RedSun Unleashed. Our latest features redefine the boundaries of what's possible in coding tools.":paragraphs('Dois dias para olhar','Uma imersão presencial criada'),
+'Powerful Features':'O caminho para transformar sua clínica em uma operação de alta performance.',
+"Explore the frontier of coding evolution with RedSun Unleashed. Our latest features redefine the boundaries of what's possible in coding tools.":'Um sistema integrado de precificação, posicionamento, vendas, gestão e processos para transformar demanda em mais margem, previsibilidade e capacidade de escala.',
 'Top Management, to help you see the bigger picture':'Estrutura para escala',
 'Helping you with fast-reading charts on the go':t('Profundidade, discussão'),
 'See Doc':'Aplicar para o PAC','Customizable layouts for efficient coding.':'Precificação e posicionamento','Font preferences to match your style.':'Processo comercial e vendas','Create multiple profiles for versatility.':'Gestão, indicadores e equipe',
 'Transform Your Work with Redsun':t('Se sua agenda já está'),
 'Embark on a transformative journey of coding excellence with Redsun':paragraphs('Pode ser estruturar','O PAC reunirá'),
-'Aliquam et tellus urna. Phasellus egetadipiscing elit. Mauris id nunc odio. Aliquam et tellus urna.':'PAC — Programa de Aceleração de Clínicas. Uma iniciativa do ecossistema Legacy Doctors.',
+'Aliquam et tellus urna. Phasellus egetadipiscing elit. Mauris id nunc odio. Aliquam et tellus urna.':'PAC: Programa de Aceleração de Clínicas. Uma iniciativa do ecossistema Legacy Doctors.',
 'Main Pages':'O programa','Blog Post':'Informações práticas','Pricing Single':'Como funciona','Checkout':'Aplicar para o PAC',
 'Social media':'A experiência','Instagram':'Londrina/PR','Facebook':'2 dias presenciais','Linkedin':'Até 30 médicos','Twitter':'Participação gratuita',
 'Webflow stuff':'Saiba mais','Style Guide':'Para quem é','Licensing':'Curadoria','Instructions':'FAQ','Change Log':'Aplicação',
@@ -40,7 +40,7 @@ def replace_text(m):
     if key in special: return '>'+next(special[key])+'<'
     return '>'+mapping.get(key,raw)+'<'
 html=re.sub(r'>([^<>]+)<',replace_text,html)
-html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerce website template','PAC — Programa de Aceleração de Clínicas | Legacy Doctors')
+html=html.replace('lang="en"','lang="pt-BR"').replace('RedSun - Webflow Ecommerce website template','PAC: Programa de Aceleração de Clínicas | Legacy Doctors')
 html=html.replace('<body>','<body id="inicio">')
 for cls,anchor in [('new-features-holder','experiencia'),('cta-wrapper','aplicacao')]:
     html=html.replace('class="'+cls+'"','id="'+anchor+'" class="'+cls+'"',1)
@@ -96,7 +96,7 @@ facts=[('Até 30 médicos','Turma reduzida.'),('2 dias','Experiência presencial
 selection=('<section id="selecao" class="section pac-selection"><div class="container"><div class="section-paddings">'
     '<div class="section-center-text"><p class="pac-kicker">Processo seletivo</p>'
     '<h2 class="title medium">Uma seleção em três etapas.</h2>'
-    '<p class="pac-selection-intro">Esta edição é limitada a até 30 médicos. Cada aplicação é analisada individualmente — e a aplicação não garante participação.</p></div>'
+    '<p class="pac-selection-intro">Esta edição é limitada a até 30 médicos. Cada aplicação é analisada individualmente e não garante participação.</p></div>'
     '<ol class="pac-timeline">'
     +''.join(f'<li class="pac-step"><span class="pac-step-num">{n}</span><h3 class="pac-step-title">{t2}</h3><p>{d}</p></li>' for n,t2,d in steps)+
     '</ol>'
