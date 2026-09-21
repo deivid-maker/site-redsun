@@ -62,8 +62,9 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 #experiencia{margin-top:88px!important}
 #experiencia .new-features-grid + .new-features-grid{margin-top:96px}
 /* Hero: make the headline the single focal point */
-.home-hero{max-width:1060px!important}
-.home-hero .hero-title{font-size:clamp(34px,4.6vw,58px);line-height:1.1;font-weight:600;letter-spacing:-.03em;margin:6px auto 28px;max-width:1000px}
+.hero-section .container{max-width:1440px!important}
+.home-hero{max-width:1440px!important}
+.home-hero .hero-title{font-size:clamp(34px,4.6vw,58px);line-height:1.08;font-weight:600;letter-spacing:-.03em;margin:6px auto 28px;max-width:1360px}
 .home-hero .badge-wrapper{margin-bottom:30px}
 .home-hero .center-hero-paragraph-holder p{color:#aeb7c6;font-size:17px;line-height:1.72}
 .home-hero .center-hero-paragraph-holder.smaller{margin-left:auto;margin-right:auto}
