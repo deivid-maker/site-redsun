@@ -58,8 +58,9 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-founder-facts>div:last-child{border-bottom:1px solid #ffffff12}
 .pac-founder-facts dt{flex:0 0 118px;color:#e5c66a;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:2px}
 .pac-founder-facts dd{margin:0;color:#dce4f1;font-size:15px;line-height:1.55}
-/* "As alavancas..." heading in gold signature style */
-.section-center-text:has(+ #experiencia) h2{font-family:'Great Vibes',cursive!important;color:#e5c66a!important;-webkit-text-fill-color:#e5c66a!important;background:none!important;font-weight:400!important;font-size:clamp(46px,6.6vw,92px)!important;line-height:1.18!important;letter-spacing:0!important}
+/* "As alavancas..." heading as gold signature image */
+.pac-signature{margin:0 auto!important}
+.pac-signature-img{display:block;margin:8px auto 4px;width:100%;max-width:680px;height:auto}
 /* Scroll reveal for the custom PAC sections */
 @media (prefers-reduced-motion: no-preference){
 .pac-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
