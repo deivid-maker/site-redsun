@@ -58,16 +58,23 @@ html{scroll-padding-top:100px}.home-hero{max-width:920px}.center-hero-paragraph-
 .pac-founder-facts>div:last-child{border-bottom:1px solid #ffffff12}
 .pac-founder-facts dt{flex:0 0 118px;color:#e5c66a;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:2px}
 .pac-founder-facts dd{margin:0;color:#dce4f1;font-size:15px;line-height:1.55}
+/* Feature checklist: use the Legacy mark instead of the orange check */
+.check-icon-holder{background:transparent!important;background-image:none!important;box-shadow:none!important;border:none!important;padding:0!important;width:32px!important;height:32px!important;min-width:32px!important;display:flex!important;align-items:center;justify-content:center}
+.check-icon{width:32px!important;height:32px!important;object-fit:contain}
 /* Experiencia: breathing room between the intro block and the feature blocks */
 #experiencia{margin-top:88px!important}
 #experiencia .new-features-grid + .new-features-grid{margin-top:96px}
 /* Hero: make the headline the single focal point */
 .hero-section .container{max-width:1440px!important}
 .home-hero{max-width:1440px!important}
-.home-hero .hero-title{font-size:clamp(34px,4.6vw,58px);line-height:1.08;font-weight:600;letter-spacing:-.03em;margin:6px auto 28px;max-width:1360px}
-.home-hero .badge-wrapper{margin-bottom:30px}
+.hero-section.padding-top{padding-top:64px}
+.home-hero .hero-title{font-size:clamp(34px,4.6vw,58px);line-height:1.08;font-weight:600;letter-spacing:-.03em;margin:0 auto 40px;max-width:1360px}
+.home-hero .badge-wrapper{margin-bottom:0}
+.hero-content .animate-on-load-02{margin-top:52px}
 .home-hero .center-hero-paragraph-holder p{color:#aeb7c6;font-size:17px;line-height:1.72}
 .home-hero .center-hero-paragraph-holder.smaller{margin-left:auto;margin-right:auto}
+.hero-content .animate-on-load-03{margin-bottom:52px}
+.hero-content .hero-button-holder{margin-top:8px;margin-bottom:24px}
 @media(max-width:639px){
 .wrap{width:calc(100% - 24px)!important}
 .section-pad{padding-top:45px!important;padding-bottom:20px!important}
